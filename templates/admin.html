@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  background:#020617;
+  color:white;
+  font-family:Inter;
+  padding:40px;
+}
+
+.card {
+  background:rgba(255,255,255,0.05);
+  border-radius:16px;
+  padding:20px;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td {
+  padding:14px;
+  border-bottom:1px solid #1e293b;
+}
+
+th {
+  color:#6366f1;
+  text-align:left;
+}
+
+.message {
+  max-width:400px;
+  color:#cbd5f5;
+}
+
+.logout {
+  float:right;
+  color:#22d3ee;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📊 EasyCyber Admin Dashboard</h1>
+<a href="/logout" class="logout">Logout</a>
+<a href="/admin/change-credentials">⚙ Change Admin Credentials</a>
+
+
+<div class="card">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Message</th>
+  </tr>
+
+  {% for c in contacts %}
+  <tr>
+    <td>{{ c.name }}</td>
+    <td>{{ c.email }}</td>
+    <td class="message">{{ c.message }}</td>
+  </tr>
+  {% else %}
+  <tr>
+    <td colspan="3">No messages yet</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+
+</body>
+</html>
